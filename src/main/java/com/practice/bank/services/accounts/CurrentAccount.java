@@ -8,14 +8,15 @@ import com.practice.bank.services.DTOobjects.CustomerEntity;
 import com.practice.bank.services.DTOobjects.CustomerRepository;
 
 @Service
-public class SavingsAccount implements AccountsRootInterface{
-	
+public class CurrentAccount implements AccountsRootInterface{
+
 	@Autowired
 	CustomerRepository cr;
-
+	
 	@Override
 	public String createAccount(Customer c) {
-		if(c.getName()!=null && c.getAccType().contains("savings")) {
+		if(c.getName()!=null && c.getAccType().contains("current")) {
+			
 		CustomerEntity centity = new CustomerEntity();
 		centity.setAadharNumber(c.getAadharNumber());
 		centity.setAccType(c.getAccType());
@@ -25,13 +26,11 @@ public class SavingsAccount implements AccountsRootInterface{
 		centity.setPhNumber(c.getPhoneNumber());
 		cr.saveAndFlush(centity);
 		c.setAccNumber(centity.getId());
-		// TODO Auto-generated method stub
-	
-	}
-		else {
-			return "Not a savings account!";
 		}
-		return "Savings account created. Account number is "+c.getAccNumber();
-
+		else {
+			return "Not a current account!";
+		}
+		return "Current account created. Account number is "+c.getAccNumber();
 	}
+
 }
