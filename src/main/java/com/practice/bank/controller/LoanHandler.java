@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practice.bank.services.accounts.AccountDepositInterface;
+import com.practice.bank.services.freqtransactions.AccountDepositInterface;
 import com.practice.bank.services.loan.LoanInterface;
 import com.practice.bank.services.loan.LoanRootInterface;
 

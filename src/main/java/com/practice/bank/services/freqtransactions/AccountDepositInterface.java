@@ -1,4 +1,4 @@
-package com.practice.bank.services.accounts;
+package com.practice.bank.services.freqtransactions;
 
 public interface AccountDepositInterface extends AccountRootInterface {
 	

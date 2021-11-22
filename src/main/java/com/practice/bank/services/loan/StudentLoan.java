@@ -2,7 +2,7 @@ package com.practice.bank.services.loan;
 
 import org.springframework.stereotype.Service;
 
-import com.practice.bank.services.accounts.AccountDepositInterface;
+import com.practice.bank.services.freqtransactions.AccountDepositInterface;
 
 @Service
 public class StudentLoan implements LoanInterface,AccountDepositInterface {

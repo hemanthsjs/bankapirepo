@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practice.bank.services.accounts.AccountDepositInterface;
-import com.practice.bank.services.accounts.AccountRootInterface;
-import com.practice.bank.services.accounts.AccountWithdrawInterface;
+import com.practice.bank.services.freqtransactions.AccountDepositInterface;
+import com.practice.bank.services.freqtransactions.AccountRootInterface;
+import com.practice.bank.services.freqtransactions.AccountWithdrawInterface;
 
 @RestController
 public class FrequentTransactionsHandler {
@@ -36,7 +36,7 @@ public class FrequentTransactionsHandler {
 	public String savingsWithdraw(@PathVariable double amount) {
 		int j=0;
 		for (AccountRootInterface accountRootInterface : account_root_ref) {
-			if(accountRootInterface.getClass().getName().contains("SavingsAccount")) {
+			if(accountRootInterface.getClass().getName().contains("SavingsDepositAndWithdrawl")) {
 				break;
 			}
 				j++;
@@ -50,7 +50,7 @@ public class FrequentTransactionsHandler {
 	public String savingsDeposit(@PathVariable double amount) {
 		int k=0;
 		for (AccountRootInterface accountRootInterface : account_root_ref) {
-			if(accountRootInterface.getClass().getName().contains("SavingsAccount")) {
+			if(accountRootInterface.getClass().getName().contains("SavingsDepositAndWithdrawl")) {
 				break ;
 			}
 			else {
