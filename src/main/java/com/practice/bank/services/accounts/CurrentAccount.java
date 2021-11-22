@@ -15,16 +15,21 @@ public class CurrentAccount implements AccountsRootInterface{
 	
 	@Override
 	public String createAccount(Customer c) {
+		if(c.getName()!=null && c.getAccType().contains("current")) {
+			
 		CustomerEntity centity = new CustomerEntity();
-		centity.setAadharNumber(c.getAadharNumebr());
+		centity.setAadharNumber(c.getAadharNumber());
 		centity.setAccType(c.getAccType());
 		centity.setAddress(c.getAddress());
 		centity.setEmailId(c.getEmailId());
 		centity.setName(c.getName());
 		centity.setPhNumber(c.getPhoneNumber());
 		cr.saveAndFlush(centity);
-		c.setAccNumber(centity.getAccNumber());
-		// TODO Auto-generated method stub
+		c.setAccNumber(centity.getId());
+		}
+		else {
+			return "Not a current account!";
+		}
 		return "Current account created. Account number is "+c.getAccNumber();
 	}
 

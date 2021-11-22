@@ -15,17 +15,23 @@ public class SavingsAccount implements AccountsRootInterface{
 
 	@Override
 	public String createAccount(Customer c) {
+		if(c.getName()!=null && c.getAccType().contains("savings")) {
 		CustomerEntity centity = new CustomerEntity();
-		centity.setAadharNumber(c.getAadharNumebr());
+		centity.setAadharNumber(c.getAadharNumber());
 		centity.setAccType(c.getAccType());
 		centity.setAddress(c.getAddress());
 		centity.setEmailId(c.getEmailId());
 		centity.setName(c.getName());
 		centity.setPhNumber(c.getPhoneNumber());
 		cr.saveAndFlush(centity);
-		c.setAccNumber(centity.getAccNumber());
+		c.setAccNumber(centity.getId());
 		// TODO Auto-generated method stub
-		return "Savings account created. Account number is "+c.getAccNumber();
+	
 	}
+		else {
+			return "Not a savings account!";
+		}
+		return "Savings account created. Account number is "+c.getAccNumber();
 
+	}
 }

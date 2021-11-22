@@ -13,34 +13,38 @@ public class CustomerEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@Column(name = "Account_Number")
 	private int id;
-	@Column(name = "Account Number")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long accNumber;
+//	@Column(name = "Account_Number")
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private long accNumber;
 	@Column(name = "Name")
 	private String name;
-	@Column(name = "Email ID")
+	@Column(name = "Email_ID")
 	private String emailId;
-	@Column(name = "Phone Number")
+	@Column(name = "Phone_Number")
 	private String phNumber;
-	@Column(name = "Aadhar Number")
+	@Column(name = "Aadhar_Number")
 	private String aadharNumber;
-	@Column(name = "Account Type")
+	@Column(name = "Account_Type")
 	private String accType;
 	@Column(name = "Address")
 	private String address;
+	
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public long getAccNumber() {
-		return accNumber;
-	}
-	public void setAccNumber(long accNumber) {
-		this.accNumber = accNumber;
-	}
+//	public long getAccNumber() {
+//		return accNumber;
+//	}
+//	public void setAccNumber(long accNumber) {
+//		this.accNumber = accNumber;
+//	}
 	public String getName() {
 		return name;
 	}

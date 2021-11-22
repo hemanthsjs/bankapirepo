@@ -8,7 +8,7 @@ public class Customer {
 	private String name;
 	private String emailId;
 	private String phoneNumber;
-	private String aadharNumebr;
+	private String aadharNumber;
 	private String address;
 	private long accNumber;
 	private String accType;
@@ -46,11 +46,11 @@ public class Customer {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getAadharNumebr() {
-		return aadharNumebr;
+	public String getAadharNumber() {
+		return aadharNumber;
 	}
 	public void setAadharNumebr(String aadharNumebr) {
-		this.aadharNumebr = aadharNumebr;
+		this.aadharNumber = aadharNumebr;
 	}
 	public String getAddress() {
 		return address;

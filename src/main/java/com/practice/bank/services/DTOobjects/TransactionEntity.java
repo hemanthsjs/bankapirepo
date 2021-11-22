@@ -1,5 +1,6 @@
 package com.practice.bank.services.DTOobjects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,13 +14,13 @@ public class TransactionEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Transaction ID")
+	@Column(name = "Transaction_ID")
 	private int id;
 	
 	
-	@Column(name = "Account Number")
-	@ManyToOne
-	@JoinColumn(name = "Account Number")
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Account_Number")
 	private CustomerEntity customer;
 	
 	
