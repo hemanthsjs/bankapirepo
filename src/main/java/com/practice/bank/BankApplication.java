@@ -1,9 +1,13 @@
 package com.practice.bank;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EnableAutoConfiguration
+@EntityScan(basePackages = {"com.practice.bank.services.DTOobjects"})
 public class BankApplication {
 
 	public static void main(String[] args) {
