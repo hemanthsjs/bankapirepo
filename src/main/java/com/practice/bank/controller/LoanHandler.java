@@ -33,7 +33,7 @@ public class LoanHandler {
 			i++;}
 		}
 		specific_implementation = implementations_list.get(i);
-		return ((LoanInterface) specific_implementation).calculateLoan(interest, principle, years)+i;
+		return ((LoanInterface) specific_implementation).calculateLoan(interest, principle, years);
 	}
 
 	
