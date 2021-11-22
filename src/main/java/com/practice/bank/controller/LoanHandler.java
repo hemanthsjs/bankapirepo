@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practice.bank.services.freqtransactions.AccountDepositInterface;
@@ -22,9 +23,9 @@ public class LoanHandler {
 	
 	
 
-	@GetMapping("/student_loan/{principle}/{interest}/{years}")
+	@PutMapping("/student_loan/{accnum}/{principle}/{interest}/{years}")
 	public String studentLoan(@PathVariable double principle, @PathVariable double interest,
-			@PathVariable double years) {
+			@PathVariable double years, @PathVariable int accnum) {
 		int i = 0;
 		for (LoanRootInterface loanRootInterface : implementations_list) {
 			if (loanRootInterface.getClass().getName().contains("StudentLoan")) {
@@ -35,7 +36,7 @@ public class LoanHandler {
 		}
 		specific_implementation = implementations_list.get(i);
 		double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
-		return  ((AccountDepositInterface) specific_implementation).deposit(l);
+		return  ((AccountDepositInterface) specific_implementation).deposit(l,accnum);
 	}
 
 	
@@ -43,8 +44,9 @@ public class LoanHandler {
 	
 	
 	
-	@GetMapping("/home_loan/{principle}/{interest}/{years}")
-	public String homeLoan(@PathVariable double principle, @PathVariable double interest, @PathVariable double years) {
+	@PutMapping("/home_loan/{accnum}/{principle}/{interest}/{years}")
+	public String homeLoan(@PathVariable double principle, @PathVariable double interest, 
+			@PathVariable double years, @PathVariable int accnum) {
 		int j = 0;;
 		for (LoanRootInterface loanRootInterface : implementations_list) {
 			if (loanRootInterface.getClass().getName().contains("HomeLoan")) {
@@ -54,7 +56,7 @@ public class LoanHandler {
 		}
 		specific_implementation = implementations_list.get(j);
 		double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
-		return  ((AccountDepositInterface) specific_implementation).deposit(l);
+		return  ((AccountDepositInterface) specific_implementation).deposit(l,accnum);
 	}
 
 	}

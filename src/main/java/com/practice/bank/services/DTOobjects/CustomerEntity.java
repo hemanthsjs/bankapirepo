@@ -13,7 +13,6 @@ public class CustomerEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	//@Column(name = "Account_Number")
 	private int id;
 //	@Column(name = "Account_Number")
 //	@Id
