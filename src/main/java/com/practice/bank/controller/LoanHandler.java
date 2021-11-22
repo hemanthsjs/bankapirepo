@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practice.bank.services.accounts.AccountDepositInterface;
 import com.practice.bank.services.loan.LoanInterface;
 import com.practice.bank.services.loan.LoanRootInterface;
 
@@ -22,7 +23,7 @@ public class LoanHandler {
 	
 
 	@GetMapping("/student_loan/{principle}/{interest}/{years}")
-	public double studentLoan(@PathVariable double principle, @PathVariable double interest,
+	public String studentLoan(@PathVariable double principle, @PathVariable double interest,
 			@PathVariable double years) {
 		int i = 0;
 		for (LoanRootInterface loanRootInterface : implementations_list) {
@@ -33,7 +34,8 @@ public class LoanHandler {
 			i++;}
 		}
 		specific_implementation = implementations_list.get(i);
-		return ((LoanInterface) specific_implementation).calculateLoan(interest, principle, years);
+		double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
+		return  ((AccountDepositInterface) specific_implementation).deposit(l);
 	}
 
 	
@@ -42,7 +44,7 @@ public class LoanHandler {
 	
 	
 	@GetMapping("/home_loan/{principle}/{interest}/{years}")
-	public double homeLoan(@PathVariable double principle, @PathVariable double interest, @PathVariable double years) {
+	public String homeLoan(@PathVariable double principle, @PathVariable double interest, @PathVariable double years) {
 		int j = 0;;
 		for (LoanRootInterface loanRootInterface : implementations_list) {
 			if (loanRootInterface.getClass().getName().contains("HomeLoan")) {
@@ -51,7 +53,8 @@ public class LoanHandler {
 			j++;}
 		}
 		specific_implementation = implementations_list.get(j);
-		return ((LoanInterface) specific_implementation).calculateLoan(interest, principle, years);
+		double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
+		return  ((AccountDepositInterface) specific_implementation).deposit(l);
 	}
 
 	}

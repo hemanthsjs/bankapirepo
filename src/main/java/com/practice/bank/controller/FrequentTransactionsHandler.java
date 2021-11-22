@@ -12,7 +12,7 @@ import com.practice.bank.services.accounts.AccountRootInterface;
 import com.practice.bank.services.accounts.AccountWithdrawInterface;
 
 @RestController
-public class AccountsHandler {
+public class FrequentTransactionsHandler {
 	
 	@Autowired
 	List<AccountRootInterface> account_root_ref;

@@ -11,7 +11,17 @@ public class Customer {
 	private String aadharNumebr;
 	private String address;
 	private long accNumber;
+	private String accType;
 	
+	
+	
+	
+	public String getAccType() {
+		return accType;
+	}
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
 	public long getAccNumber() {
 		return accNumber;
 	}
