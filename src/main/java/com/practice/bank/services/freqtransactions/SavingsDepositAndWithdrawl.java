@@ -36,7 +36,7 @@ public class SavingsDepositAndWithdrawl implements AccountDepositInterface, Acco
 			tk.setBalance(b);
 		}
 		tk.setCustomer(c.get());
-		tk.setCredit(amount);
+		tk.setDebit(amount);
 		tk.setRemarks(amount + " Rs Withdrawn.");
 		tr.saveAndFlush(tk);
 		return tk.getRemarks();

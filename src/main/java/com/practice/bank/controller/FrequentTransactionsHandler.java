@@ -3,8 +3,8 @@ package com.practice.bank.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,16 +19,22 @@ public class FrequentTransactionsHandler {
 	List<AccountRootInterface> account_root_ref;
 	AccountRootInterface specific_account_ref;
 	
-	@PutMapping("/fixedDeposit/{accnum)/{amount}")
+	@PutMapping("/fixedDeposit/{accnum}/{amount}")
 	public String fixedAccount(@PathVariable double amount, @PathVariable int accnum) {
+		System.out.println("1");
 		int i=0;
 		for (AccountRootInterface accountRootInterface : account_root_ref) {
+			System.out.println("2");
 			if(accountRootInterface.getClass().getName().contains("FixedDepositAccount")) {
+				System.out.println("3");
 				break;
+				
 			}
 			i++;
+			System.out.println("4");
 		}
 		specific_account_ref = account_root_ref.get(i);
+		System.out.println("4");
 		return ((AccountDepositInterface) specific_account_ref).deposit(amount,accnum);
 	}
 	
