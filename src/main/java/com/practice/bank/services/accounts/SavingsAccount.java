@@ -24,7 +24,7 @@ public class SavingsAccount implements AccountsRootInterface{
 		centity.setName(c.getName());
 		centity.setPhNumber(c.getPhoneNumber());
 		cr.saveAndFlush(centity);
-		c.setAccNumber(centity.getId());
+		c.setAccNumber(centity.getC_id());
 		// TODO Auto-generated method stub
 	
 	}

@@ -8,19 +8,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Transactions_table")
 public class TransactionEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Transaction_ID")
-	private int id;
+	private int transaction_id;
 	
 	
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Account_Number")
+	@JoinColumn(name = "c_id")
 	private CustomerEntity customer;
 	
 	
@@ -33,11 +35,21 @@ public class TransactionEntity {
 	@Column(name = "Remarks")
 	private String remarks;
 	
+	private double balance;
+	
+	
+	
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 	public int getId() {
-		return id;
+		return transaction_id;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.transaction_id = id;
 	}
 	public CustomerEntity getCustomer() {
 		return customer;
@@ -63,8 +75,4 @@ public class TransactionEntity {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	
-	
-	
-	
 }

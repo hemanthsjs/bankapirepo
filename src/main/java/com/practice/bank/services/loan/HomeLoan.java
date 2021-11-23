@@ -1,12 +1,28 @@
 package com.practice.bank.services.loan;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.practice.bank.services.DTOobjects.CustomerEntity;
+import com.practice.bank.services.DTOobjects.CustomerRepository;
+import com.practice.bank.services.DTOobjects.TransactionEntity;
+import com.practice.bank.services.DTOobjects.TransactionRepository;
 import com.practice.bank.services.freqtransactions.AccountDepositInterface;
 
 @Service
 public class HomeLoan implements LoanInterface,AccountDepositInterface {
 
+	
+	@Autowired
+	TransactionRepository tr;
+	@Autowired
+	CustomerRepository cr;
+	
+	
+	
 	@Override
 	public double calculateEmi(double interest, double principle, double years) {
 		// TODO Auto-generated method stub
@@ -16,9 +32,16 @@ public class HomeLoan implements LoanInterface,AccountDepositInterface {
 	}
 
 	@Override
-	public String deposit(double amount) {
-		// TODO Auto-generated method stub
-		return "Home loan EMI is "+Math.round(amount);
+	public String deposit(double amount,int accnum) {
+		Optional<CustomerEntity> c = cr.findById(accnum);
+		List<TransactionEntity> te = tr.getTransactionList(accnum);
+		int n = te.size()-1;
+		double b = te.get(n).getBalance()+amount;
+		TransactionEntity tk = new TransactionEntity();
+		tk.setBalance(b);
+		tk.setCredit(amount);
+		tk.setRemarks(b+" Rs of home loan sanctioned.");
+		return  tk.getRemarks();
 	}
 
 }
