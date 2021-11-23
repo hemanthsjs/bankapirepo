@@ -22,7 +22,7 @@ public class TransactionEntity {
 	
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "c_id")
+	@JoinColumn(name = "id")
 	private CustomerEntity customer;
 	
 	
