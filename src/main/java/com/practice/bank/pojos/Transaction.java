@@ -2,6 +2,7 @@ package com.practice.bank.pojos;
 
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -12,6 +13,8 @@ public class Transaction {
 	private double debit;
 	private String remarks;
 	private LocalDate date;
+	@Autowired
+	private Customer c;
 	public double getCredit() {
 		return credit;
 	}
@@ -35,6 +38,12 @@ public class Transaction {
 	}
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+	public Customer getC() {
+		return c;
+	}
+	public void setC(Customer c) {
+		this.c = c;
 	}
 	
 	
