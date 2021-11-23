@@ -11,18 +11,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Transactions")
+@Table(name = "Transactions_table")
 public class TransactionEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Transaction_ID")
-	private int id;
+	private int transaction_id;
 	
 	
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "c_id")
 	private CustomerEntity customer;
 	
 	
@@ -46,10 +46,10 @@ public class TransactionEntity {
 		this.balance = balance;
 	}
 	public int getId() {
-		return id;
+		return transaction_id;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.transaction_id = id;
 	}
 	public CustomerEntity getCustomer() {
 		return customer;

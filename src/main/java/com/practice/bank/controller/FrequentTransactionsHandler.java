@@ -48,7 +48,7 @@ public class FrequentTransactionsHandler {
 	}
 	
 	@PutMapping("/savingsDeposit/{accnum}/{amount}")
-	public String savingsDeposit(@PathVariable double amount, @PathVariable int accnum) {
+	public String savingsDeposit( @PathVariable int accnum, @PathVariable double amount) {
 		int k=0;
 		for (AccountRootInterface accountRootInterface : account_root_ref) {
 			if(accountRootInterface.getClass().getName().contains("SavingsDepositAndWithdrawl")) {

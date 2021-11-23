@@ -13,13 +13,12 @@ public class CustomerEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-//	@Column(name = "Account_Number")
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private long accNumber;
+	@Column(name = "c_id")
+	private int c_id;
+
 	@Column(name = "Name")
 	private String name;
+	
 	@Column(name = "Email_ID")
 	private String emailId;
 	@Column(name = "Phone_Number")
@@ -32,18 +31,22 @@ public class CustomerEntity {
 	private String address;
 	
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 //	public long getAccNumber() {
 //		return accNumber;
 //	}
 //	public void setAccNumber(long accNumber) {
 //		this.accNumber = accNumber;
 //	}
+	
+	public int getC_id() {
+		return c_id;
+	}
+	public void setC_id(int c_id) {
+		this.c_id = c_id;
+	}
+	
+	
 	public String getName() {
 		return name;
 	}

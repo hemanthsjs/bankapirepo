@@ -25,7 +25,7 @@ public class CurrentAccount implements AccountsRootInterface{
 		centity.setName(c.getName());
 		centity.setPhNumber(c.getPhoneNumber());
 		cr.saveAndFlush(centity);
-		c.setAccNumber(centity.getId());
+		c.setAccNumber(centity.getC_id());
 		}
 		else {
 			return "Not a current account!";
