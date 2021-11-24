@@ -35,8 +35,8 @@ public class LoanHandler {
 			i++;}
 		}
 		specific_implementation = implementations_list.get(i);
-		double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
-		return  ((AccountDepositInterface) specific_implementation).deposit(l,accnum);
+		//double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
+		return  ((AccountDepositInterface) specific_implementation).deposit(principle,accnum);
 	}
 
 	
@@ -55,8 +55,8 @@ public class LoanHandler {
 			j++;}
 		}
 		specific_implementation = implementations_list.get(j);
-		double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
-		return  ((AccountDepositInterface) specific_implementation).deposit(l,accnum);
+		//double l =  ((LoanInterface) specific_implementation).calculateEmi(interest, principle, years);
+		return  ((AccountDepositInterface) specific_implementation).deposit(principle,accnum);
 	}
 
 	}
